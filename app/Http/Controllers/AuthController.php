@@ -14,11 +14,6 @@ use App\Http\Controllers\AuthController;
 
 class AuthController extends Controller
 {
-    /* public function __construct()
-    {
-    $this->middleware('auth:api', ['except' => ['login', 'register', 'deleteUsersAfterTesting']]);
-    } */
-
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,10 +28,6 @@ class AuthController extends Controller
         ]
         );
 
-        /* if ($validator->fails()) {
-        return response()->json($validator->errors(), 422);
-        } */
-
         $credentials = $request->only('email', 'password');
 
         if (!Auth::attempt($credentials)) {
@@ -45,28 +36,25 @@ class AuthController extends Controller
 
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
 
-        /* $token =  DB::table('personal_access_tokens')
-        ->where('tokenable_id','=',Auth::user()->id)->first(); */
-
         return response()->json([
             'status'       => 201,
             "id"           => Auth::user()->id,
             "user"         => Auth::user()->name,
             "email"        => Auth::user()->email,
-            "access_token" => $accessToken->token,
+            "access_token" => $accessToken,
             'userProfile'  => Auth::user()->profile,
         ]);
     }
 
     public function userGoogleData(Request $request)
     {
-        $email = $request->email;
-        $userGoogle = DB::table('users')->where('email','=',$email)->first();
-        $UserGoogleProfile =  DB::table('userprofile')->where('user_id','=',$userGoogle->id)->first();
+        $email             = $request->email;
+        $userGoogle        = DB::table('users')->where('email', '=', $email)->first();
+        $UserGoogleProfile = DB::table('userprofile')->where('user_id', '=', $userGoogle->id)->first();
 
         return response()->json([
             'userGoogleId' => $userGoogle->id,
-            'userProfile' => $UserGoogleProfile
+            'userProfile'  => $UserGoogleProfile,
         ]);
     }
 
@@ -203,7 +191,7 @@ class AuthController extends Controller
         auth()->logout();
 
         return response()->json([
-            'message' => 'Successfully logged out',
+        'message' => 'Successfully logged out',
         ]);
     }
 
