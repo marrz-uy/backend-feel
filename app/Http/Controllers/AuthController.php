@@ -62,8 +62,11 @@ class AuthController extends Controller
     {
         $email = $request->email;
         $userGoogle = DB::table('users')->where('email','=',$email)->first();
+        $UserGoogleProfile =  DB::table('userprofile')->where('user_id','=',$userGoogle->id)->first();
+
         return response()->json([
             'userGoogleId' => $userGoogle->id,
+            'userProfile' => $UserGoogleProfile
         ]);
     }
 

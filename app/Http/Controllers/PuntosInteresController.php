@@ -25,25 +25,47 @@ class PuntosInteresController extends Controller
 
         // WERE-WEREBETWEEN FUNCIONANDO BIEN
 
-        $eventosPorNombre = DB::table('puntosinteres')
-            ->Join('eventos', 'puntosinteres_id', '=', 'puntosinteres.id')
-            ->whereBetween('Latitud', [$latMIN, $latMAX])
-            ->whereBetween('Longitud', [$longMIN, $longMAX])
-            ->where('eventos.NombreEvento', 'like', '%' . $Nombre . '%')
-        // ->orWhere('eventos.tipo', 'like', '%' . $Nombre . '%')
-            ->paginate(12);
+        if (!$latpunto || !$longpunto || !$distancia) {
+            $eventosPorNombre = DB::table('puntosinteres')
+                ->Join('eventos', 'puntosinteres_id', '=', 'puntosinteres.id')
+                ->where('eventos.NombreEvento', 'like', '%' . $Nombre . '%')
+                ->orWhere('eventos.tipo', 'like', '%' . $Nombre . '%')
+                ->paginate(12);
 
-        $puntosPorNombre = DB::table('puntosinteres')
-            ->where('nombre', 'like', '%' . $Nombre . '%')
-            ->whereBetween('Latitud', [$latMIN, $latMAX])
-            ->whereBetween('Longitud', [$longMIN, $longMAX])
-            ->paginate(12);
+            $puntosPorNombre = DB::table('puntosinteres')
+                ->where('nombre', 'like', '%' . $Nombre . '%')
+                ->paginate(12);
 
-        if ($puntosPorNombre == '') {
-            return response()->json($eventosPorNombre);
-        } else {
-            return response()->json($puntosPorNombre);
+            if ($puntosPorNombre == '') {
+                return response()->json($eventosPorNombre);
+            } else {
+                return response()->json($puntosPorNombre);
+            }
         }
+
+        if ($latpunto && $longpunto) {
+            $eventosPorNombre = DB::table('puntosinteres')
+                ->Join('eventos', 'puntosinteres_id', '=', 'puntosinteres.id')
+                ->whereBetween('Latitud', [$latMIN, $latMAX])
+                ->whereBetween('Longitud', [$longMIN, $longMAX])
+                ->where('eventos.NombreEvento', 'like', '%' . $Nombre . '%')
+            // ->orWhere('eventos.tipo', 'like', '%' . $Nombre . '%')
+                ->paginate(12);
+
+            $puntosPorNombre = DB::table('puntosinteres')
+                ->where('nombre', 'like', '%' . $Nombre . '%')
+                ->whereBetween('Latitud', [$latMIN, $latMAX])
+                ->whereBetween('Longitud', [$longMIN, $longMAX])
+                ->paginate(12);
+
+            if ($puntosPorNombre == '') {
+                return response()->json($eventosPorNombre);
+            } else {
+                return response()->json($puntosPorNombre);
+            }
+
+        }
+
     }
 
     //**LISTAR PUNTOS DE INTERES POR CATEGORIA con DISTANCIA**
@@ -80,14 +102,24 @@ class PuntosInteresController extends Controller
         $longMIN = $longpunto - ($distancia);
         $longMAX = $longpunto + ($distancia);
 
-        $puntosPorCategoria = DB::table('puntosinteres')
-            ->Join($tabla, 'puntosinteres.id', '=', 'puntosinteres_id')
-            ->whereBetween('Latitud', [$latMIN, $latMAX])
-            ->whereBetween('Longitud', [$longMIN, $longMAX])
-            ->orderBy('Tipo')
-            ->paginate(12);
+        if (!$latpunto || !$longpunto || !$distancia) {
+            $puntosPorCategoria = DB::table('puntosinteres')
+                ->Join($tabla, 'puntosinteres.id', '=', 'puntosinteres_id')
+                ->orderBy('Tipo')
+                ->paginate(12);
+            return response()->json($puntosPorCategoria);
+        }
 
-        return response()->json($puntosPorCategoria);
+        if ($latpunto && $longpunto && $distancia) {
+            $puntosPorCategoria = DB::table('puntosinteres')
+                ->Join($tabla, 'puntosinteres.id', '=', 'puntosinteres_id')
+                ->whereBetween('Latitud', [$latMIN, $latMAX])
+                ->whereBetween('Longitud', [$longMIN, $longMAX])
+                ->orderBy('Tipo')
+                ->paginate(12);
+
+            return response()->json($puntosPorCategoria);
+        }
 
     }
 
