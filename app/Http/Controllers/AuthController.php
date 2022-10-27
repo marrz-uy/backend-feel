@@ -49,7 +49,7 @@ class AuthController extends Controller
         ->where('tokenable_id','=',Auth::user()->id)->first(); */
 
         return response()->json([
-            'status'       => 200,
+            'status'       => 201,
             "id"           => Auth::user()->id,
             "user"         => Auth::user()->name,
             "email"        => Auth::user()->email,
