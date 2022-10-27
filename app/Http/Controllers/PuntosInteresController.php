@@ -30,7 +30,7 @@ class PuntosInteresController extends Controller
             ->whereBetween('Latitud', [$latMIN, $latMAX])
             ->whereBetween('Longitud', [$longMIN, $longMAX])
             ->where('eventos.NombreEvento', 'like', '%' . $Nombre . '%')
-            // ->orWhere('eventos.tipo', 'like', '%' . $Nombre . '%')
+        // ->orWhere('eventos.tipo', 'like', '%' . $Nombre . '%')
             ->paginate(12);
 
         $puntosPorNombre = DB::table('puntosinteres')
@@ -46,7 +46,6 @@ class PuntosInteresController extends Controller
         }
     }
 
-
     //**LISTAR PUNTOS DE INTERES POR CATEGORIA con DISTANCIA**
     public function ListarPuntosDeInteresPorCategoriaCercanos(Request $request, $Categoria)
     {
@@ -60,6 +59,14 @@ class PuntosInteresController extends Controller
 
         if ($Categoria === 'Transporte') {
             $tabla = 'transporte';
+        }
+
+        if ($Categoria === 'Actividades Infantiles') {
+            $tabla = 'actividades_infantiles';
+        }
+
+        if ($Categoria === 'Actividades Nocturnas') {
+            $tabla = 'actividades_nocturnas';
         }
 
         // VALORES RECIBIDOS
