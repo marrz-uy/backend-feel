@@ -12,17 +12,24 @@ class UserProfileController extends Controller
 
     public function insertUserProfile(Request $request)
     {
-        $userprofile               = new UserProfile();
-        $userprofile->user_id      = $request->user_id;
-        $userprofile->nacionalidad = $request->nacionalidad;
-        $userprofile->f_nacimiento = $request->f_nacimiento;
-        $userprofile->preferencias = $request->preferencias;
+        $userprofile                         = new UserProfile();
+        $userprofile->user_id                = $request->user_id;
+        $userprofile->nacionalidad           = $request->nacionalidad;
+        $userprofile->f_nacimiento           = $request->f_nacimiento;
+        $userprofile->alojamiento            = $request->alojamiento;
+        $userprofile->gastronomia            = $request->gastronomia;
+        $userprofile->espectaculos           = $request->espectaculos;
+        $userprofile->actividadesAlAirelibre = $request->actividadesAlAirelibre;
+        $userprofile->actividadesNocturnas   = $request->actividadesNocturnas;
+        $userprofile->transporte             = $request->transporte;
+        $userprofile->actividadesInfantiles  = $request->actividadesInfantiles;
+        $userprofile->serviciosEsenciales    = $request->serviciosEsenciales;
         $userprofile->save();
 
         return response()->json([
             'message'     => 'Successfully registered User profile',
             'userprofile' => $userprofile,
-            'status'      => 200,
+            'status'      => 201,
         ]);
     }
 
@@ -42,7 +49,6 @@ class UserProfileController extends Controller
 
     }
 
-  
     public function updateUserProfile(Request $request, $id)
     {
         $userprofile = UserProfile::where('user_id', $id)->first();

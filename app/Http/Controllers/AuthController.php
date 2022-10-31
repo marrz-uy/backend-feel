@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\DB;
+use Validator;
 
 // use Illuminate\Support\Facades\Auth;
 
@@ -37,12 +37,13 @@ class AuthController extends Controller
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
 
         return response()->json([
-            'status'       => 201,
+            'status'       => 200,
             "id"           => Auth::user()->id,
             "user"         => Auth::user()->name,
             "email"        => Auth::user()->email,
             "access_token" => $accessToken,
             'userProfile'  => Auth::user()->profile,
+            'cheked' => Auth::check()
         ]);
     }
 
@@ -188,26 +189,26 @@ class AuthController extends Controller
 
     public function logout()
     {
-        auth()->logout();
-
+        $user = Auth::user()->token();
+        $user->revoke();
         return response()->json([
-        'message' => 'Successfully logged out',
-        ]);
+            'Successfully logged out'
+        ], 200);
     }
 
     public function deleteUsersAfterTesting(Request $request)
     {
-        $userDeleted3 = User::where('email', $request->user3)->first();
+        $userDeleted3 = User::where('email', $request->user1)->first();
         $userDeleted3->delete();
-
-        $userDeleted4 = User::where('email', $request->user4)->first();
-        $userDeleted4->delete();
-
-        $userDeleted1 = User::where('email', $request->user1)->first();
-        $userDeleted1->delete();
-
         $userDeleted2 = User::where('email', $request->user2)->first();
-        $userDeleted2->delete();
+        $userDeleted2->delete(); 
+
+        // $userDeleted4 = User::where('email', $request->user4)->first();
+        // $userDeleted4->delete();
+
+        // $userDeleted1 = User::where('email', $request->user3)->first();
+        // $userDeleted1->delete();
+
 
         return response()->json(['mensaje' => 'Usuarios eliminados'], 200);
 

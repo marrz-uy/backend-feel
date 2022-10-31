@@ -14,7 +14,7 @@ class CreateUserprofileTable extends Migration
     public function up()
     {
         Schema::create('userprofile', function (Blueprint $table) {
-            $table->charset = 'utf8mb4';
+            $table->charset   = 'utf8mb4';
             $table->collation = 'utf8mb4_general_ci';
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
@@ -23,9 +23,16 @@ class CreateUserprofileTable extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('nacionalidad');
-            $table->date('f_nacimiento');
-            $table->json('preferencias');
+            $table->string('nacionalidad')->nullable();
+            $table->date('f_nacimiento')->format('D-m-y')->nullable();
+            $table->string('alojamiento')->nullable();
+            $table->string('gastronomia')->nullable();
+            $table->string('espectaculos')->nullable();
+            $table->string('actividadesAlAirelibre')->nullable();
+            $table->string('actividadesNocturnas')->nullable();
+            $table->string('transporte')->nullable();
+            $table->string('actividadesInfantiles')->nullable();
+            $table->string('serviciosEsenciales')->nullable();
             $table->timestamps();
         });
     }
