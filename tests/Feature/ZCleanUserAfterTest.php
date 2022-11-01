@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class ZCleanUserAfterTest extends TestCase
 {
-    /* public function test_Eliminar_usuario1_creado_para_los_test()
+    public function test_Eliminar_usuario1_creado_para_los_test()
     {
         // Insert de un usuario para asegurar existencia de a quien se agregan las preferencias
         $email                = getenv('API_USER_EMAIL1');
@@ -126,5 +126,5 @@ class ZCleanUserAfterTest extends TestCase
             'user' => $email
         ]);
         $response->assertStatus(200);
-    } */
+    }
 }

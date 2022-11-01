@@ -27,9 +27,8 @@ class UpdatePerfilTest extends TestCase
 
         $response = $this->withHeaders([
             'content-type'  => 'application/json',
-            'Authorization' => 'Bearer' . $token,
-            ])->patchJson('/api/userProfile', [
-                "user_id"                => $user->id,
+            // 'Authorization' => 'Bearer' . $token,
+            ])->patchJson('/api/userProfile/'. $user->id,[
                 "nacionalidad"           => "Peruano",
                 "f_nacimiento"           => "2020-08-25",
                 "alojamiento"            => "hotel",
@@ -97,9 +96,9 @@ class UpdatePerfilTest extends TestCase
         $response = $this->withHeaders([
             'content-type'  => 'application/json',
             'Authorization' => 'Bearer' . $token,
-            ])->patchJson('/api/userProfile', [
-                "user_id"                => $user->id,
+            ])->patchJson('/api/userProfile/'. $user->id,[
                 "nacionalidad"           => "Peruano",
+                "f_nacimiento"           => "2025",
             ]);
 
         $response->assertStatus(500);

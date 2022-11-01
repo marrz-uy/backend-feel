@@ -51,7 +51,8 @@ class UserProfileController extends Controller
 
     public function updateUserProfile(Request $request, $id)
     {
-        $userprofile = UserProfile::where('user_id', $id)->first();
+        $user_id = $id;
+        $userprofile = UserProfile::where('user_id', $user_id)->first();
 
         if ($userprofile !== null) {
 
@@ -70,6 +71,7 @@ class UserProfileController extends Controller
             return response()->json([
                 'message' => 'Successfully updated User profile',
                 'user'    => $userprofile,
+                'status'      => 200,
             ]);
         } else {
             return response()->json([
