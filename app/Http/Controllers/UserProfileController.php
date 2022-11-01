@@ -55,9 +55,16 @@ class UserProfileController extends Controller
 
         if ($userprofile !== null) {
 
-            $userprofile->nacionalidad = $request->nacionalidad;
-            $userprofile->f_nacimiento = $request->f_nacimiento;
-            $userprofile->preferencias = $request->preferencias;
+            $userprofile->nacionalidad           = $request->nacionalidad;
+            $userprofile->f_nacimiento           = $request->f_nacimiento;
+            $userprofile->alojamiento            = $request->alojamiento;
+            $userprofile->gastronomia            = $request->gastronomia;
+            $userprofile->espectaculos           = $request->espectaculos;
+            $userprofile->actividadesAlAirelibre = $request->actividadesAlAirelibre;
+            $userprofile->actividadesNocturnas   = $request->actividadesNocturnas;
+            $userprofile->transporte             = $request->transporte;
+            $userprofile->actividadesInfantiles  = $request->actividadesInfantiles;
+            $userprofile->serviciosEsenciales    = $request->serviciosEsenciales;
             $userprofile->save();
 
             return response()->json([
@@ -81,11 +88,11 @@ class UserProfileController extends Controller
             return response()->json([
                 'message' => 'Successfully deleted User profile',
                 'user'    => $eliminado,
-            ]);
+            ], 200);
         } else {
             return response()->json([
                 'message' => 'The user does not exist or does not have a user profile',
-            ]);
+            ], 404);
         }
     }
 }

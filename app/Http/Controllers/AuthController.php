@@ -198,17 +198,8 @@ class AuthController extends Controller
 
     public function deleteUsersAfterTesting(Request $request)
     {
-        $userDeleted3 = User::where('email', $request->user1)->first();
-        $userDeleted3->delete();
-        $userDeleted2 = User::where('email', $request->user2)->first();
-        $userDeleted2->delete(); 
-
-        // $userDeleted4 = User::where('email', $request->user4)->first();
-        // $userDeleted4->delete();
-
-        // $userDeleted1 = User::where('email', $request->user3)->first();
-        // $userDeleted1->delete();
-
+        $userDeleted = User::where('email', $request->user)->first();
+        $userDeleted->delete();
 
         return response()->json(['mensaje' => 'Usuarios eliminados'], 200);
 

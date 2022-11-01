@@ -24,7 +24,7 @@ class CreateUserprofileTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('nacionalidad')->nullable();
-            $table->date('f_nacimiento')->format('D-m-y')->nullable();
+            $table->date('f_nacimiento')->nullable();
             $table->string('alojamiento')->nullable();
             $table->string('gastronomia')->nullable();
             $table->string('espectaculos')->nullable();
