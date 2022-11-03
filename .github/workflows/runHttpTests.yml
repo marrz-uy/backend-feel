@@ -29,6 +29,7 @@ jobs:
           cp .env.example .env 
           composer install 
           php artisan key:generate
+          php artisan passport:install
       - name: Preparar base de datos para pruebas
         run: |
           php artisan migrate 
