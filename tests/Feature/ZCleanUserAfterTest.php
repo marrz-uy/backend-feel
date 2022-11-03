@@ -127,4 +127,34 @@ class ZCleanUserAfterTest extends TestCase
         ]);
         $response->assertStatus(200);
     }
+
+    public function test_Eliminar_usuario5_creado_para_los_test()
+    {
+        // Insert de un usuario para asegurar existencia de a quien se agregan las preferencias
+        $email                = getenv('API_USER_EMAIL5');
+        $password             = getenv('API_USER_PASSWORD5');
+        $passwordConfirmation = getenv('API_USER_PASSWORDCONFIRMATION5');
+        $name                 = getenv('API_USER_NAME5');
+
+        //Se hace Login con usuario para generar el Token
+        $response = $this->withHeaders([
+            'Content-type' => 'application/json',
+        ])->postJson('/api/login', [
+            'email'    => $email,
+            'password' => $password,
+        ]);
+
+        $token = Auth::user()->createToken('authToken')->accessToken;
+
+        // Al tener el token se puede proceder a eliminar los registros creados en los test
+        $email = getenv('API_USER_EMAIL5');
+
+        $response = $this->withHeaders([
+            'content-type'  => 'application/json',
+            'Authorization' => 'Bearer' . $token,
+        ])->postJson('/api/deleteUsers', [
+            'user' => $email
+        ]);
+        $response->assertStatus(200);
+    }
 }
