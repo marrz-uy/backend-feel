@@ -91,12 +91,7 @@ class DeleteProfileTest extends TestCase
         $user  = User::where('email', $email)->first();
         $token = Auth::user()->createToken('authToken')->accessToken;
 
-        // //? Elimino perfil
-        // $response = $this->withHeaders([
-        //     'content-type'  => 'application/json',
-        //     'Authorization' => 'Bearer' . $token,
-        // ])->deleteJson('api/userProfile/' . $user->id);
-
+        
         //? <-----CONFIRMAR QUE SE BORRO---->
 
         $response = $this->withHeaders([
