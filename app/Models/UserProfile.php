@@ -14,9 +14,15 @@ class UserProfile extends Model
     protected $fillable = [
         'nacionalidad',
         'f_nacimiento',
-        'preferencias',
+        'alojamiento',
+        'gastronomia',
+        'espectaculos',
+        'actividadesAlAirelibre',
+        'actividadesNocturnas',
+        'transporte',
+        'actividadesInfantiles',
+        'serviciosEsenciales',
     ];
-
 
     // Realacion uno a uno
     public function user()
@@ -24,6 +30,3 @@ class UserProfile extends Model
         return $this->belongsTo(User::class);
     }
 }
-
-
-
