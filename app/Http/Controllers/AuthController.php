@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\DB;
+use Validator;
 
 // use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    /* public function __construct()
-    {
-    $this->middleware('auth:api', ['except' => ['login', 'register', 'deleteUsersAfterTesting']]);
-    } */
-
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -33,10 +28,6 @@ class AuthController extends Controller
         ]
         );
 
-        /* if ($validator->fails()) {
-        return response()->json($validator->errors(), 422);
-        } */
-
         $credentials = $request->only('email', 'password');
 
         if (!Auth::attempt($credentials)) {
@@ -45,28 +36,26 @@ class AuthController extends Controller
 
         $accessToken = Auth::user()->createToken('authToken')->accessToken;
 
-        /* $token =  DB::table('personal_access_tokens')
-        ->where('tokenable_id','=',Auth::user()->id)->first(); */
-
         return response()->json([
             'status'       => 200,
             "id"           => Auth::user()->id,
             "user"         => Auth::user()->name,
             "email"        => Auth::user()->email,
-            "access_token" => $accessToken->token,
+            "access_token" => $accessToken,
             'userProfile'  => Auth::user()->profile,
+            'cheked' => Auth::check()
         ]);
     }
 
     public function userGoogleData(Request $request)
     {
-        $email = $request->email;
-        $userGoogle = DB::table('users')->where('email','=',$email)->first();
-        $UserGoogleProfile =  DB::table('userprofile')->where('user_id','=',$userGoogle->id)->first();
+        $email             = $request->email;
+        $userGoogle        = DB::table('users')->where('email', '=', $email)->first();
+        $UserGoogleProfile = DB::table('userprofile')->where('user_id', '=', $userGoogle->id)->first();
 
         return response()->json([
             'userGoogleId' => $userGoogle->id,
-            'userProfile' => $UserGoogleProfile
+            'userProfile'  => $UserGoogleProfile,
         ]);
     }
 
@@ -200,26 +189,17 @@ class AuthController extends Controller
 
     public function logout()
     {
-        auth()->logout();
-
+        $user = Auth::user()->token();
+        $user->revoke();
         return response()->json([
-            'message' => 'Successfully logged out',
-        ]);
+            'Successfully logged out'
+        ], 200);
     }
 
     public function deleteUsersAfterTesting(Request $request)
     {
-        $userDeleted3 = User::where('email', $request->user3)->first();
-        $userDeleted3->delete();
-
-        $userDeleted4 = User::where('email', $request->user4)->first();
-        $userDeleted4->delete();
-
-        $userDeleted1 = User::where('email', $request->user1)->first();
-        $userDeleted1->delete();
-
-        $userDeleted2 = User::where('email', $request->user2)->first();
-        $userDeleted2->delete();
+        $userDeleted = User::where('email', $request->user)->first();
+        $userDeleted->delete();
 
         return response()->json(['mensaje' => 'Usuarios eliminados'], 200);
 
