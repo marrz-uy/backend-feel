@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+// use App\Models\Gastronomicos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
             EventosSeeder::class,
             TransporteSeeder::class,
             ActividadesInfantilesSeeder::class,
-            ActividadesNocturnasSeeder::class
+            ActividadesNocturnasSeeder::class,
+
+
+            GastronomicosSeeder::class
         ]);
     }
 }
