@@ -90,17 +90,14 @@ class PuntosInteresController extends Controller
         if ($Categoria === 'Actividades Nocturnas') {
             $tabla = 'actividades_nocturnas';
         }
+        
         if ($Categoria === 'Paseos') {
             $tabla = 'paseos';
         }
 
-
-
-        
-        if ($Categoria === 'gastronomicos') {
+        if ($Categoria === 'Gastronomia') {
             $tabla = 'gastronomicos';
         }
-
 
         // VALORES RECIBIDOS
         $latpunto  = $request->latitudAEnviar;

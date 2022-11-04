@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TranslationSeeder::class,
-            // UserSeeder::class,
-            // UserProfileSeeder::class,
             ServiciosEsencialesSeeder::class,
             EspectaculosSeeder::class,
             EventosSeeder::class,
@@ -24,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ActividadesInfantilesSeeder::class,
             ActividadesNocturnasSeeder::class,
             PaseosSeeder::class,
-            GastronomicosSeeder::class,
+            Gastronomicos::class,
         ]);
     }
 }
