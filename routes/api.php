@@ -26,9 +26,14 @@ use App\Http\Controllers\UserProfileController;
     return $request->user();
 }); */
 
+Route::middleware('auth:api')->group(function () {
+    // our routes to be protected will go in here
+    Route::POST('logout', [AuthController::class, 'logout']);
+});
+
 Route::POST('login', [AuthController::class, 'login']);
 Route::POST('register', [AuthController::class, 'register']);
-Route::POST('logout', [AuthController::class, 'logout']);
+
 Route::POST('refresh', [AuthController::class, 'refresh']);
 Route::PATCH('updateEmail/{id}', [AuthController::class, 'userEmailUpdate']);
 Route::PATCH('updateName/{id}', [AuthController::class, 'userNameUpdate']);
