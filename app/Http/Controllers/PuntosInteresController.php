@@ -94,6 +94,14 @@ class PuntosInteresController extends Controller
             $tabla = 'paseos';
         }
 
+
+
+        
+        if ($Categoria === 'gastronomicos') {
+            $tabla = 'gastronomicos';
+        }
+
+
         // VALORES RECIBIDOS
         $latpunto  = $request->latitudAEnviar;
         $longpunto = $request->longitudAEnviar;

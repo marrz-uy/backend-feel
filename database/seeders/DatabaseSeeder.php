@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             TranslationSeeder::class,
             // UserSeeder::class,
@@ -25,7 +24,7 @@ class DatabaseSeeder extends Seeder
             ActividadesInfantilesSeeder::class,
             ActividadesNocturnasSeeder::class,
             PaseosSeeder::class,
-
+            GastronomicosSeeder::class,
         ]);
     }
 }
