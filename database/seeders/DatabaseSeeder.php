@@ -13,17 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             TranslationSeeder::class,
-            // UserSeeder::class,
-            // UserProfileSeeder::class,
             ServiciosEsencialesSeeder::class,
             EspectaculosSeeder::class,
             EventosSeeder::class,
             TransporteSeeder::class,
             ActividadesInfantilesSeeder::class,
-            ActividadesNocturnasSeeder::class
+            ActividadesNocturnasSeeder::class,
+            PaseosSeeder::class,
+            Gastronomicos::class,
         ]);
     }
 }
