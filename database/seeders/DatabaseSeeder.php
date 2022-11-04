@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-// use App\Models\Gastronomicos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             TranslationSeeder::class,
             // UserSeeder::class,
@@ -24,8 +22,6 @@ class DatabaseSeeder extends Seeder
             TransporteSeeder::class,
             ActividadesInfantilesSeeder::class,
             ActividadesNocturnasSeeder::class,
-
-
             GastronomicosSeeder::class
         ]);
     }
