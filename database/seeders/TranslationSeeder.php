@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class TranslationSeeder extends Seeder
 {
-    
     public function run()
     {
         DB::table('translations')->insert([
@@ -228,7 +227,7 @@ class TranslationSeeder extends Seeder
 
         DB::table('translations')->insert([
             'tagName' => 'preferencesOutdoorActivitiesLabel',
-            'es'      => 'Actividades Al Aire Libre',
+            'es'      => 'Paseos',
             'en'      => 'Outdoor Activities',
         ]);
 
