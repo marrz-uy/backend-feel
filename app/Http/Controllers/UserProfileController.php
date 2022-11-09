@@ -12,18 +12,18 @@ class UserProfileController extends Controller
 
     public function insertUserProfile(Request $request)
     {
-        $userprofile                         = new UserProfile();
-        $userprofile->user_id                = $request->user_id;
-        $userprofile->nacionalidad           = $request->nacionalidad;
-        $userprofile->f_nacimiento           = $request->f_nacimiento;
-        $userprofile->alojamiento            = $request->alojamiento;
-        $userprofile->gastronomia            = $request->gastronomia;
-        $userprofile->espectaculos           = $request->espectaculos;
-        $userprofile->actividadesAlAirelibre = $request->actividadesAlAirelibre;
-        $userprofile->actividadesNocturnas   = $request->actividadesNocturnas;
-        $userprofile->transporte             = $request->transporte;
-        $userprofile->actividadesInfantiles  = $request->actividadesInfantiles;
-        $userprofile->serviciosEsenciales    = $request->serviciosEsenciales;
+        $userprofile                        = new UserProfile();
+        $userprofile->user_id               = $request->user_id;
+        $userprofile->nacionalidad          = $request->nacionalidad;
+        $userprofile->f_nacimiento          = $request->f_nacimiento;
+        $userprofile->alojamiento           = $request->alojamiento;
+        $userprofile->gastronomia           = $request->gastronomia;
+        $userprofile->espectaculos          = $request->espectaculos;
+        $userprofile->paseos                = $request->paseos;
+        $userprofile->actividadesNocturnas  = $request->actividadesNocturnas;
+        $userprofile->transporte            = $request->transporte;
+        $userprofile->actividadesInfantiles = $request->actividadesInfantiles;
+        $userprofile->serviciosEsenciales   = $request->serviciosEsenciales;
         $userprofile->save();
 
         return response()->json([
@@ -51,27 +51,26 @@ class UserProfileController extends Controller
 
     public function updateUserProfile(Request $request, $id)
     {
-        $user_id = $id;
+        $user_id     = $id;
         $userprofile = UserProfile::where('user_id', $user_id)->first();
 
         if ($userprofile !== null) {
-
-            $userprofile->nacionalidad           = $request->nacionalidad;
-            $userprofile->f_nacimiento           = $request->f_nacimiento;
-            $userprofile->alojamiento            = $request->alojamiento;
-            $userprofile->gastronomia            = $request->gastronomia;
-            $userprofile->espectaculos           = $request->espectaculos;
-            $userprofile->actividadesAlAirelibre = $request->actividadesAlAirelibre;
-            $userprofile->actividadesNocturnas   = $request->actividadesNocturnas;
-            $userprofile->transporte             = $request->transporte;
-            $userprofile->actividadesInfantiles  = $request->actividadesInfantiles;
-            $userprofile->serviciosEsenciales    = $request->serviciosEsenciales;
+            $userprofile->nacionalidad          = $request->nacionalidad;
+            $userprofile->f_nacimiento          = $request->f_nacimiento;
+            $userprofile->alojamiento           = $request->alojamiento;
+            $userprofile->gastronomia           = $request->gastronomia;
+            $userprofile->espectaculos          = $request->espectaculos;
+            $userprofile->paseos                = $request->paseos;
+            $userprofile->actividadesNocturnas  = $request->actividadesNocturnas;
+            $userprofile->transporte            = $request->transporte;
+            $userprofile->actividadesInfantiles = $request->actividadesInfantiles;
+            $userprofile->serviciosEsenciales   = $request->serviciosEsenciales;
             $userprofile->save();
 
             return response()->json([
                 'message' => 'Successfully updated User profile',
                 'user'    => $userprofile,
-                'status'      => 200,
+                'status'  => 200,
             ]);
         } else {
             return response()->json([
