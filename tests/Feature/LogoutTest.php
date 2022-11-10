@@ -11,8 +11,19 @@ class LogoutTest extends TestCase
     public function test_Logout_Correcto()
     {
 
-        $email    = getenv('API_USER_EMAIL1');
-        $password = getenv('API_USER_PASSWORD1');
+        $email                = getenv('API_USER_EMAIL1');
+        $password             = getenv('API_USER_PASSWORD1');
+        $passwordConfirmation = getenv('API_USER_PASSWORDCONFIRMATION1');
+        $name                 = getenv('API_USER_NAME1');
+
+        $response = $this->withHeaders([
+            'content-type' => 'application/json',
+        ])->postJson('/api/register', [
+            'email'                => $email,
+            'password'             => $password,
+            'passwordConfirmation' => $passwordConfirmation,
+            'name'                 => $name,
+        ]);
 
         $response = $this->withHeaders([
             'Content-type' => 'application/json',
