@@ -17,7 +17,7 @@ class LogoutTest extends TestCase
         $response = $this->withHeaders([
             'Content-type' => 'application/json',
         ])->postJson('/api/login', [
-            "email"    => "aaa@gmail.com",
+            "email"    => "martin1@gmail.com",
             "password" => "12345678",
         ]);
 
