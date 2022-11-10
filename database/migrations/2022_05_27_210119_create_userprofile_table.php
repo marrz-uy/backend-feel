@@ -28,7 +28,7 @@ class CreateUserprofileTable extends Migration
             $table->string('alojamiento')->nullable();
             $table->string('gastronomia')->nullable();
             $table->string('espectaculos')->nullable();
-            $table->string('actividadesAlAirelibre')->nullable();
+            $table->string('paseos')->nullable();
             $table->string('actividadesNocturnas')->nullable();
             $table->string('transporte')->nullable();
             $table->string('actividadesInfantiles')->nullable();
