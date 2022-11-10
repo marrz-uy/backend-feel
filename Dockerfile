@@ -42,6 +42,6 @@ COPY . /var/www/html
 
 WORKDIR /var/www/html
 
-RUN composer install && cp .env.example .env && php artisan key:generate && php artisan passport:install
+RUN composer install && cp .env.example .env && php artisan key:generate
 
 CMD httpd -D FOREGROUND 
