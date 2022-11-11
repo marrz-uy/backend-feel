@@ -113,10 +113,10 @@ class GastronomicosSeeder extends Seeder
             DB::table('gastronomicos')->insert([
                 'puntosinteres_id' => $c,
                 'Tipo'             => 'Cervezerias',
-                'ComidaVegge' => true,
-                'Comida' => true,
-                'Alcohol' => true,
-                'MenuInfantil' => true
+                'ComidaVegge' => 1,
+                'Comida' => 1,
+                'Alcohol' => 1,
+                'MenuInfantil' => 1
             ]);
         }
         
