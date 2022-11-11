@@ -18,7 +18,7 @@ class AlojamientosSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($c = 481; $c < 501; $c++) {
+        for ($c = 561; $c < 581; $c++) {
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Hotel' . $faker->city,
                 'Departamento' => $faker->state,
@@ -50,7 +50,7 @@ class AlojamientosSeeder extends Seeder
                 'Desayuno'         => 1
             ]);
         
-            for ($c = 481; $c < 501; $c++) {
+            for ($c = 581; $c < 601; $c++) {
                 DB::table('puntosinteres')->insert([
                     'Nombre'       => 'Hostel' . $faker->city,
                     'Departamento' => $faker->state,
@@ -82,7 +82,7 @@ class AlojamientosSeeder extends Seeder
                     'Desayuno'         => 1
                 ]);
 
-            for ($c = 481; $c < 501; $c++) {
+            for ($c = 601; $c < 621; $c++) {
                 DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Motel' . $faker->city,
                 'Departamento' => $faker->state,
@@ -114,7 +114,7 @@ class AlojamientosSeeder extends Seeder
                 'Desayuno'         => 1
             ]);
 
-            for ($c = 481; $c < 501; $c++) {
+            for ($c = 621; $c < 641; $c++) {
                 DB::table('puntosinteres')->insert([
                     'Nombre'       => 'Estancia' . $faker->city,
                     'Departamento' => $faker->state,
@@ -146,7 +146,7 @@ class AlojamientosSeeder extends Seeder
                     'Desayuno'         => 1
                 ]);
 
-        for ($c = 481; $c < 501; $c++) {
+        for ($c = 641; $c < 661; $c++) {
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Camping' . $faker->city,
                 'Departamento' => $faker->state,
@@ -178,7 +178,7 @@ class AlojamientosSeeder extends Seeder
                 'Desayuno'         => 1
             ]);
 
-            for ($c = 481; $c < 501; $c++) {
+            for ($c = 661; $c < 681; $c++) {
                 DB::table('puntosinteres')->insert([
                     'Nombre'       => 'Casa' . $faker->city,
                     'Departamento' => $faker->state,
