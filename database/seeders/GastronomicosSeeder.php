@@ -37,6 +37,10 @@ class GastronomicosSeeder extends Seeder
             DB::table('gastronomicos')->insert([
                 'puntosinteres_id' => $c,
                 'Tipo'             => 'Restaurantes',
+                'ComidaVegge' => true,
+                'Comida' => true,
+                'Alcohol' => true,
+                'MenuInfantil' => true
             ]);
         }
 
@@ -59,6 +63,10 @@ class GastronomicosSeeder extends Seeder
             DB::table('gastronomicos')->insert([
                 'puntosinteres_id' => $c,
                 'Tipo'             => 'Bares',
+                'ComidaVegge' => true,
+                'Comida' => true,
+                'Alcohol' => true,
+                'MenuInfantil' => true
             ]);
         }
         for ($c = 521; $c < 541; $c++) {
@@ -80,6 +88,10 @@ class GastronomicosSeeder extends Seeder
             DB::table('gastronomicos')->insert([
                 'puntosinteres_id' => $c,
                 'Tipo'             => 'Comida rapida',
+                'ComidaVegge' => true,
+                'Comida' => true,
+                'Alcohol' => true,
+                'MenuInfantil' => true
             ]);
         }
         for ($c = 541; $c < 561; $c++) {
@@ -101,6 +113,10 @@ class GastronomicosSeeder extends Seeder
             DB::table('gastronomicos')->insert([
                 'puntosinteres_id' => $c,
                 'Tipo'             => 'Cervezerias',
+                'ComidaVegge' => true,
+                'Comida' => true,
+                'Alcohol' => true,
+                'MenuInfantil' => true
             ]);
         }
         
