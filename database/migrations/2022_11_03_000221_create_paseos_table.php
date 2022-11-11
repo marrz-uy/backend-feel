@@ -14,13 +14,14 @@ class CreatePaseosTable extends Migration
     public function up()
     {
         Schema::create('paseos', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('puntosinteres_id')
+        $table->id();
+        $table->foreignId('puntosinteres_id')
             ->constrained('puntosinteres')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+        $table->String('Recomendaciones');
         $table->set('Tipo', ['Playas','Ejercicios al aire libre','Cerros','Sierras']);
-            $table->timestamps();
+        $table->timestamps();
         });
     }
 
