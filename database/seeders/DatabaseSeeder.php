@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ActividadesNocturnasSeeder::class,
             PaseosSeeder::class,
             GastronomicosSeeder::class,
+            AlojamientosSeeder::class
         ]);
     }
 }

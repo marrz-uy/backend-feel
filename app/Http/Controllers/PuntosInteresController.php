@@ -99,6 +99,10 @@ class PuntosInteresController extends Controller
             $tabla = 'gastronomicos';
         }
 
+        if ($Categoria === 'Alojamiento') {
+            $tabla = 'alojamientos';
+        }
+
         // VALORES RECIBIDOS
         $latpunto  = $request->latitudAEnviar;
         $longpunto = $request->longitudAEnviar;
