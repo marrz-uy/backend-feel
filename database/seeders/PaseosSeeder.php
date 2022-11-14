@@ -36,6 +36,7 @@ class PaseosSeeder extends Seeder
 
             DB::table('paseos')->insert([
                 'puntosinteres_id' => $c,
+                'Recomendaciones'  => 'Punta del Este',
                 'Tipo'             => 'Playas',
             ]);
         }
@@ -58,6 +59,7 @@ class PaseosSeeder extends Seeder
 
             DB::table('paseos')->insert([
                 'puntosinteres_id' => $c,
+                'Recomendaciones'  => 'Plaza de deportes',
                 'Tipo'             => 'Ejercicios al aire libre',
             ]);
         }
@@ -79,6 +81,7 @@ class PaseosSeeder extends Seeder
 
             DB::table('paseos')->insert([
                 'puntosinteres_id' => $c,
+                'Recomendaciones'  => 'Cerro pan de Azúcar',
                 'Tipo'             => 'Cerros',
             ]);
         }
@@ -100,6 +103,7 @@ class PaseosSeeder extends Seeder
 
             DB::table('paseos')->insert([
                 'puntosinteres_id' => $c,
+                'Recomendaciones'  => 'Sierra de las ánimas',
                 'Tipo'             => 'Sierras',
             ]);
         }
