@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('HoraDeCierre')->nullable();
             $table->string('Facebook')->nullable();
             $table->string('Instagram')->nullable();
+            $table->string('Web')->nullable();
             $table->string('Descripcion')->nullable();
             $table->string('Imagen')->nullable();
             $table->integer('Latitud')->nullable();
