@@ -83,7 +83,7 @@ class TranslationSeeder extends Seeder
 
         DB::table('translations')->insert([
             'tagName' => 'lodginLabel',
-            'es'      => 'Hospedaje',
+            'es'      => 'Alojamiento',
             'en'      => 'Lodgin',
         ]);
 

@@ -41,7 +41,7 @@ class AlojamientosSeeder extends Seeder
                 'Piscina'           => 1,
                 'Wifi'              => 1,
                 'AireAcondicionado' => 1,
-                'BanoPrivad'        => 1,
+                'BanoPrivad'        => 1, 
                 'Casino'            => 1,
                 'Bar'               => 1,
                 'Restaurante'       => 1,
