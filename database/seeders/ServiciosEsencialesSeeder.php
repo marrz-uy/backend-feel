@@ -27,7 +27,10 @@ class ServiciosEsencialesSeeder extends Seeder
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -52,7 +55,10 @@ class ServiciosEsencialesSeeder extends Seeder
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -75,7 +81,10 @@ class ServiciosEsencialesSeeder extends Seeder
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -98,7 +107,10 @@ class ServiciosEsencialesSeeder extends Seeder
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -121,7 +133,10 @@ class ServiciosEsencialesSeeder extends Seeder
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
             ]);
 
             DB::table('servicios_esenciales')->insert([

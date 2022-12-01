@@ -54,3 +54,6 @@ Route::POST('/PuntosInteresCercanos/categoria/{categoria}', [PuntosInteresContro
 
 Route::GET('/translations', [TranslationsController::class, 'fetchTranslations']);
 Route::POST('/translations', [TranslationsController::class, 'saveTranslations']);
+
+Route::GET('/tour/verPuntosInteres', [PuntosInteresController::class, 'ListarPuntosDeInteresParaTour']);
+

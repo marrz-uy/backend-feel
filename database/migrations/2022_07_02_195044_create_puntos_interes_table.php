@@ -24,8 +24,9 @@ return new class extends Migration
             $table->string('Imagen')->nullable();
             $table->integer('Latitud')->nullable();
             $table->integer('Longitud')->nullable();
-            /* $table->decimal('Latitud', $precision = 7, $scale = 5)->nullable();
-            $table->decimal('Longitud', $precision = 7, $scale = 5)->nullable(); */
+            $table->set('TipoDeLugar',['Espacio cerrado','Al aire libre','Ambos']);
+            $table->set('RestriccionDeEdad',['Todas','Mayores']);
+            $table->set('EnfoqueDePersonas',['Grupo','Familia', 'Pareja','Solo']);
             $table->timestamps();
         });
     }
