@@ -90,7 +90,7 @@ class PuntosInteresController extends Controller
         if ($Categoria === 'Actividades Nocturnas') {
             $tabla = 'actividades_nocturnas';
         }
-        
+
         if ($Categoria === 'Paseos') {
             $tabla = 'paseos';
         }
@@ -133,6 +133,25 @@ class PuntosInteresController extends Controller
             return response()->json($puntosPorCategoria);
         }
 
+    }
+
+    public function ListarPuntosDeInteresParaTour(Request $request)
+    {
+        $dia   = '08:00:00';
+        $tarde = '12:00:00';
+        $noche = '20:00:00';
+
+        $puntosParaTour = DB::table('puntosinteres')
+            ->where('HoraDeApertura', '>', $dia)
+            ->where('horaDeCierre', '>', $tarde)
+            ->where('TipodeLugar', '>', 'Espacio cerrado')
+            ->where('RestricciondeEdad', '>', 'Mayores')
+            ->where('EnfoqueDePersonas', '>', 'familia')
+            ->where('Ciudad', 'like', '%' . 'Abbottport' . '%')
+            ->orWhere('Departamento', 'like', '%' . 'Abbottport' . '%')
+            ->get();
+
+        return response()->json($puntosParaTour);
     }
 
 }
