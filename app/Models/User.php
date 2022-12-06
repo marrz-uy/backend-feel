@@ -51,8 +51,6 @@ class User extends Authenticatable
     // Realacion uno a uno
     public function profile()
     {
-        // $profile = UserProfile::where('user_id', $this->id)->first();
-        // return $profile;
         return $this->hasOne(UserProfile::class);
     }
 

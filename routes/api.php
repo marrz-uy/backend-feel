@@ -43,7 +43,7 @@ Route::GET('/PuntosInteres/categoria/{categoria}', [PuntosInteresController::cla
 Route::POST('/PuntosInteresCercanos/nombre/{nombre}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorNombreCercanos']); //Con geolocalizacion
 Route::POST('/PuntosInteresCercanos/categoria/{categoria}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorCategoriaCercanos']); //Con geolocalizacion
 
-Route::GET('/PuntosInteresParaTour', [PuntosInteresController::class, 'ListarPuntosDeInteresParaTour']);
+Route::POST('/PuntosInteresParaTour', [PuntosInteresController::class, 'ListarPuntosDeInteresParaTour']);
 
 Route::GET('/translations', [TranslationsController::class, 'fetchTranslations']);
 Route::POST('/translations', [TranslationsController::class, 'saveTranslations']);

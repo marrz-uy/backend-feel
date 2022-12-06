@@ -21,10 +21,10 @@ class ActividadesInfantilesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Circo ' . $faker->city,
                 'Departamento' => $faker->state,
-                'Ciudad'       => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'    => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Circo ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Circo ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -34,7 +34,7 @@ class ActividadesInfantilesSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('actividades_infantiles')->insert([
@@ -47,10 +47,10 @@ class ActividadesInfantilesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Calesita ' . $faker->city,
                 'Departamento' => $faker->state,
-                'Ciudad'       => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'    => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Calesita ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Calesita' . $c,
                 'Web' => 'https://www.google.com/',
@@ -60,7 +60,7 @@ class ActividadesInfantilesSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo'])
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja'])
             ]);
 
             DB::table('actividades_infantiles')->insert([
@@ -73,10 +73,10 @@ class ActividadesInfantilesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Maquinitas ' . $faker->city,
                 'Departamento' => $faker->state,
-                'Ciudad'       => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'    => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Maquinitas ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Maquinitas ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -86,7 +86,7 @@ class ActividadesInfantilesSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('actividades_infantiles')->insert([
@@ -99,10 +99,10 @@ class ActividadesInfantilesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'       => 'Juegos Infantiles ' . $faker->city,
                 'Departamento' => $faker->state,
-                'Ciudad'       => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'    => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Juegos Infantiles ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Juegos Infantiles ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -112,7 +112,7 @@ class ActividadesInfantilesSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('actividades_infantiles')->insert([

@@ -21,10 +21,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Hotel' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Hotel ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Hotel ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -34,7 +34,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
             DB::table('alojamientos')->insert([
                 'puntosinteres_id'  => $c,
@@ -57,10 +57,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Hostel' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Hostel ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Hostel ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -70,7 +70,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
             DB::table('alojamientos')->insert([
                 'puntosinteres_id'  => $c,
@@ -93,10 +93,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Motel' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Motel ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Motel ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -106,7 +106,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('alojamientos')->insert([
@@ -129,10 +129,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Estancia' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Estancia ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Estancia ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -142,7 +142,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
             DB::table('alojamientos')->insert([
                 'puntosinteres_id'  => $c,
@@ -165,10 +165,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Camping' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Camping ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Camping ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -178,7 +178,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
             DB::table('alojamientos')->insert([
                 'puntosinteres_id'  => $c,
@@ -201,10 +201,10 @@ class AlojamientosSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Casa' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre'   => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook'       => 'https://www.facebook.com/' . 'Casa ' . $c,
                 'Instagram'      => 'https://www.instagram.com/' . 'Casa ' . $c,
                 'Web' => 'https://www.google.com/',
@@ -214,7 +214,7 @@ class AlojamientosSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia', 'Pareja','Solo']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
             DB::table('alojamientos')->insert([
                 'puntosinteres_id'  => $c,
