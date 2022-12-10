@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('Imagen')->nullable();
             $table->integer('Latitud')->nullable();
             $table->integer('Longitud')->nullable();
-            $table->set('TipoDeLugar',['Espacio cerrado','Al aire libre','Ambos']);
-            $table->set('RestriccionDeEdad',['Todas','Mayores']);
-            $table->set('EnfoqueDePersonas',['Grupo','Familia', 'Pareja','Solo']);
+            $table->set('TipoDeLugar', ['Espacio cerrado', 'Al aire libre', 'Ambos']);
+            $table->set('RestriccionDeEdad', ['Todas', 'Mayores']);
+            $table->set('EnfoqueDePersonas', ['Grupo', 'Familia', 'Pareja', 'Solo']);
             $table->timestamps();
         });
     }

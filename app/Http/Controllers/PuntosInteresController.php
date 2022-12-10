@@ -148,12 +148,11 @@ class PuntosInteresController extends Controller
 
          */
 
-        $horaInicio        = $request->horaInicio;
-        $tipoDeLugar       = $request->tipoDeLugar;
-        $restriccionDeEdad = $request->restriccionDeEdad;
-        $enfoqueDePersonas = $request->enfoqueDePersonas;
-        $ubicacion         = $request->ubicacion;
-
+        $horaInicio          = $request->horaInicio;
+        $tipoDeLugar         = $request->tipoDeLugar;
+        $restriccionDeEdad   = $request->restriccionDeEdad;
+        $enfoqueDePersonas   = $request->enfoqueDePersonas;
+        $ubicacion           = $request->ubicacion;
         $puntosParatourArray = array();
 
         $puntosParaTourGastronomicos = DB::table('puntosinteres')
@@ -168,13 +167,13 @@ class PuntosInteresController extends Controller
             ->get();
 
         $puntosParaTourEspectaculos = DB::table('puntosinteres')
-            ->Join('eventos', 'puntosinteres.id', '=', 'puntosinteres_id')
             ->where('HoraDeApertura', '<=', $horaInicio)
             ->where('HoraDeCierre', '>', $horaInicio)
             ->where('TipoDeLugar', '=', $tipoDeLugar)
             ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
             ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
             ->where('Ciudad', 'like', '%' . $ubicacion . '%')
+            ->Join('eventos', 'puntosinteres.id', '=', 'puntosinteres_id')
             ->select('puntosinteres.*', 'eventos.*')
             ->get();
 
@@ -211,16 +210,6 @@ class PuntosInteresController extends Controller
             ->select('puntosinteres.*', 'paseos.*')
             ->get();
 
-        /*   return response()->json(
-        [
-        'Gastronomicos' => $puntosParaTourGastronomicos,
-        // 'Espectaculos'           => $puntosParaTourEspectaculos,
-        // 'Actividades Infantiles' => $puntosParaTourActividadesInfantiles,
-        // 'Actividades Nocturnas'  => $puntosParaTourActividadesNocturnas,
-        // 'Paseos'                 => $puntosParaTourPaseos,
-        ]
-        ); */
-
         array_push($puntosParatourArray,
             $puntosParaTourGastronomicos,
             $puntosParaTourEspectaculos,
@@ -231,9 +220,39 @@ class PuntosInteresController extends Controller
 
         $data      = collect($puntosParatourArray);
         $flattened = $data->flatten()->toArray();
-       
+
         return response()->json($flattened);
-        // return response()->json(' jajajajajajajjaaj');
+
+        ####################################################################
+        /*  $results = DB::table('puntosinteres AS t1')
+        ->join('gastronomicos AS t2', 't1.id', '=', 't2.puntosinteres_id')
+        ->join('eventos AS t3', 't1.id', '=', 't3.puntosinteres_id')
+        ->join('actividades_infantiles AS t4', 't1.id', '=', 't4.puntosinteres_id')
+        ->select('t1.*', 't2.*', 't3.*', 't4.*')
+        ->where('t1.HoraDeCierre', '>', $horaInicio)
+        ->where('t1.TipoDeLugar', '=', $tipoDeLugar)
+        ->where('t1.RestriccionDeEdad', '=', $restriccionDeEdad)
+        ->where('t1.EnfoqueDePersonas', '=', $enfoqueDePersonas)
+        ->where('t1.Ciudad', 'like', '%' . $ubicacion . '%')
+        ->get();
+
+        return response()->json($results); */
+
+        ####################################################################
+       /*  $results = DB::table('puntosinteres AS t1')
+            ->join('gastronomicos AS t2', 't1.id', '=', 't2.puntosinteres_id')
+            ->join('eventos AS t3', 't1.id', '=', 't3.puntosinteres_id')
+            ->join('actividades_infantiles AS t4', 't1.id', '=', 't4.puntosinteres_id')
+            ->select('t1.*')
+            ->where('t1.HoraDeApertura', '<=', $horaInicio)
+            ->where('t1.HoraDeCierre', '>', $horaInicio)
+            ->where('t1.TipoDeLugar', '=', $tipoDeLugar)
+            ->where('t1.RestriccionDeEdad', '=', $restriccionDeEdad)
+            ->where('t1.EnfoqueDePersonas', '=', $enfoqueDePersonas)
+            ->where('t1.Ciudad', 'like', '%' . $ubicacion . '%')
+            ->get();
+
+        return response()->json($results); */
 
     }
 
