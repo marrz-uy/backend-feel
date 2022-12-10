@@ -229,6 +229,7 @@ class PuntosInteresController extends Controller
         ->join('eventos AS t3', 't1.id', '=', 't3.puntosinteres_id')
         ->join('actividades_infantiles AS t4', 't1.id', '=', 't4.puntosinteres_id')
         ->select('t1.*', 't2.*', 't3.*', 't4.*')
+        ->where('t1.HoraDeApertura', '<=', $horaInicio)
         ->where('t1.HoraDeCierre', '>', $horaInicio)
         ->where('t1.TipoDeLugar', '=', $tipoDeLugar)
         ->where('t1.RestriccionDeEdad', '=', $restriccionDeEdad)
