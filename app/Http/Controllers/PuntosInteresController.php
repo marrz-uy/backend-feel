@@ -219,9 +219,9 @@ class PuntosInteresController extends Controller
         );
 
         $data      = collect($puntosParatourArray);
-        $flattened = $data->flatten()->toArray();
+        $arrayFinal = $data->flatten()->toArray();
 
-        return response()->json($flattened);
+        return response()->json($arrayFinal);
 
         ####################################################################
         /*  $results = DB::table('puntosinteres AS t1')
@@ -238,21 +238,7 @@ class PuntosInteresController extends Controller
 
         return response()->json($results); */
 
-        ####################################################################
-       /*  $results = DB::table('puntosinteres AS t1')
-            ->join('gastronomicos AS t2', 't1.id', '=', 't2.puntosinteres_id')
-            ->join('eventos AS t3', 't1.id', '=', 't3.puntosinteres_id')
-            ->join('actividades_infantiles AS t4', 't1.id', '=', 't4.puntosinteres_id')
-            ->select('t1.*')
-            ->where('t1.HoraDeApertura', '<=', $horaInicio)
-            ->where('t1.HoraDeCierre', '>', $horaInicio)
-            ->where('t1.TipoDeLugar', '=', $tipoDeLugar)
-            ->where('t1.RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('t1.EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('t1.Ciudad', 'like', '%' . $ubicacion . '%')
-            ->get();
-
-        return response()->json($results); */
+        
 
     }
 
