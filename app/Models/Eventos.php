@@ -11,7 +11,7 @@ class Eventos extends Model
     use HasFactory;
 
     public function PuntosInteres(){
-        return $this->hasMany(PuntosInteres::class, "puntosinteres_id", "id");
+        return $this->belongsTo(PuntosInteres::class, "puntosinteres_id", "id");
     }
 
 

@@ -14,4 +14,9 @@ class ActividadesInfantiles extends Model
     protected $fillable = [
         'Tipo'
     ];
+
+    public function PuntosInteres()
+    {
+        return $this->belongsTo(PuntosInteres::class, 'puntosinteres_id', 'id');
+    }
 }
