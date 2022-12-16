@@ -45,6 +45,11 @@ class PuntosInteres extends Model
     public function VerTelefonos()
     {
         return $this->hasMany(Telefonos::class, 'puntosinteres_id', 'id');
+    }
+
+    public function touritem()
+    {
+        return $this->belongsTo(TourItems::class, 'puntoInteresId', 'id');
 
     }
 
