@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PuntosInteresController;
+use App\Http\Controllers\TourController;
 use App\Http\Controllers\TranslationsController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,7 @@ Route::POST('/PuntosInteresParaTour', [PuntosInteresController::class, 'ListarPu
 Route::GET('/translations', [TranslationsController::class, 'fetchTranslations']);
 Route::POST('/translations', [TranslationsController::class, 'saveTranslations']);
 
+Route::POST('/tourArmado', [TourController::class, 'InsertarTourArmado']);
+Route::GET('/tourArmado/{id}', [TourController::class, 'ListarToursArmados']);
+Route::POST('/tourPredefinido', [TourController::class, 'InsertarTourPredefinido']);
+Route::GET('/tourPredefinido', [TourController::class, 'ListarToursPredefinidos']);
