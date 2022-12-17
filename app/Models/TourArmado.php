@@ -10,12 +10,12 @@ class TourArmado extends Model
     // use HasFactory;
 
     protected $fillable = [
-    'usuarioId',
-    'nombreTour',
-    'horaInicioTour',
+        'usuarioId',
+        'nombreTour',
+        'horaInicioTour',
     ];
 
-    public function touritems()
+    public function TourItems()
     {
         return $this->hasMany(TourItems::class, 'tourId', 'id');
     }

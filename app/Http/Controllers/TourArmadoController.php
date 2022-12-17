@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\TourArmado;
 use App\Models\TourItems;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Validator;
 
 class TourArmadoController extends Controller
@@ -29,16 +28,16 @@ class TourArmadoController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
-        
+
         $tour = TourArmado::create([
             'usuarioId'      => $request->usuarioId,
             'nombreTour'     => $request->nombreTour,
             'horaInicioTour' => $request->horaInicioTour,
         ]);
-        
+
         $puntosdeInteresTour = $request->puntosdeInteresTour;
-        $puntos = explode(',', $puntosdeInteresTour);
-        $id = $tour->id;
+        $puntos              = explode(',', $puntosdeInteresTour);
+        $id                  = $tour->id;
         foreach ($puntos as $punto) {
             TourItems::create([
                 'puntoInteresId' => $punto,
@@ -47,36 +46,21 @@ class TourArmadoController extends Controller
         }
 
         return response()->json([
-            'Message' => 'Tour Creado correctamente' . $tour->nombreTour,
+            'Message' => 'Tour Creado correctamente ' . $tour->nombreTour,
         ]);
 
     }
 
-
-    
-    public function ListarToursArmados($id)/* NO FUNCIONA BIEN ESTE AÚN */
+    public function ListarToursArmados($id)
     {
-        /* ----------------------------------------------------------- */
-        $tours = DB::table('tour_armados')->where('usuarioId', $id)
-        // ->Join('tour_items', 'tour_armados.id', '=', 'tourId')
-        // ->Join('puntosinteres', 'puntosinteres.id', '=', 'puntoInteresId')
-        ->get();
+        $tourArmados = TourArmado::with('TourItems.PuntosInteres')
+            ->where('usuarioId', $id)
+            ->get();
 
         return response()->json([
-        $tours
+            $tourArmados,
         ]);
-        /* ----------------------------------------------------------- */
 
-        // $tours     = DB::table('tour_armados')->where('usuarioId', $id);
-        // $touritems = TourArmado::find($id)->touritems('puntoInteresId')->get();
-        // foreach ($touritems as $items) {
-        // }  
-        // $touritems = TourItems::find($id)->punto;
-        /* return response()->json([
-            'tour' => $tours,
-            'items' => $touritems,
-        ]); */
-        /* ----------------------------------------------------------- */
     }
 
 }

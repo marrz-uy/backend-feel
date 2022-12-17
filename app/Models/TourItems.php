@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\PuntosInteres;
 use App\Models\TourArmado;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class TourItems extends Model
 {
@@ -15,13 +16,13 @@ class TourItems extends Model
         'puntoInteresId', /* foreign key */
     ];
 
-    public function tour()
+    public function TourArmados()
     {
-        return $this->belongsTo(TourArmado::class, 'tourId', 'id');
+        return $this->belongsTo(TourArmado::class);
     }
 
-    public function punto()
+    public function PuntosInteres()
     {
-        return $this->hasOne(PuntosInteres::class, 'tourId', 'id');
+        return $this->hasOne(PuntosInteres::class, 'id', 'puntoInteresId');
     }
 }

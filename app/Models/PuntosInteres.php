@@ -8,6 +8,7 @@ use App\Models\Eventos;
 use App\Models\Gastronomicos;
 use App\Models\Paseos;
 use App\Models\Telefonos;
+use App\Models\TourItems;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -47,9 +48,9 @@ class PuntosInteres extends Model
         return $this->hasMany(Telefonos::class, 'puntosinteres_id', 'id');
     }
 
-    public function touritem()
+    public function TourItem()
     {
-        return $this->belongsTo(TourItems::class, 'puntoInteresId', 'id');
+        return $this->belongsToMany(TourItems::class, 'puntoInteresId', 'id');
 
     }
 
