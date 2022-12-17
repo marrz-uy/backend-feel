@@ -25,4 +25,8 @@ class TourItems extends Model
     {
         return $this->hasOne(PuntosInteres::class, 'id', 'puntoInteresId');
     }
+    public function TourPredefinido()
+    {
+        return $this->belongsTo(TourPredefinido::class);
+    }
 }
