@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
-use App\Models\PuntosInteres;
-use App\Models\TourArmado;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TourItems extends Model
+class TourItemsPredefinido extends Model
 {
     use HasFactory;
+
+    protected $table = 'tour_items_predefinido';
 
     protected $fillable = [
         'tourId', /* foreign key */
         'puntoInteresId', /* foreign key */
     ];
 
-    public function TourArmados()
+    public function TourPredefinido()
     {
-        return $this->belongsTo(TourArmado::class);
+        return $this->belongsTo(TourPredefinido::class);
     }
 
     public function PuntosInteres()

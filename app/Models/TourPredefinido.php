@@ -17,8 +17,8 @@ class TourPredefinido extends Model
         'horaDeInicioTourPredefinido',
     ];
 
-    public function PuntosInteres()
+    public function TourItems()
     {
-        return $this->hasMany(PuntosInteres::class, 'puntosinteres_id', 'id');
+        return $this->hasMany(TourItemsPredefinido::class, 'tourId', 'id');
     }
 }
