@@ -141,10 +141,10 @@ class PuntosInteresController extends Controller
 
         TABLAS A USAR
         $tabla = 'gastronomicos';
-        $tabla = 'espectaculos';
+        $tabla = 'espectaculos'; ->(shows)
         $tabla = 'actividades_infantiles';
         $tabla = 'actividades_nocturnas';
-        $tabla = 'paseos';
+        $tabla = 'paseos';-> (actividades al aire libre)
 
          */
 
@@ -155,60 +155,25 @@ class PuntosInteresController extends Controller
         $ubicacion           = $request->ubicacion;
         $puntosParatourArray = array();
 
-        $puntosParaTourGastronomicos = DB::table('puntosinteres')
-            ->where('HoraDeApertura', '<=', $horaInicio)
-            ->where('HoraDeCierre', '>', $horaInicio)
-            ->where('TipoDeLugar', '=', $tipoDeLugar)
-            ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('Ciudad', 'like', '%' . $ubicacion . '%')
-            ->Join('gastronomicos', 'puntosinteres.id', '=', 'puntosinteres_id')
-            ->select('puntosinteres.*', 'gastronomicos.*')
-            ->get();
+        function obtenerPuntosInteres($tablaJoin, $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion)
+        {
+            return DB::table('puntosinteres')
+                ->where('HoraDeApertura', '<=', $horaInicio)
+                ->where('HoraDeCierre', '>', $horaInicio)
+                ->where('TipoDeLugar', '=', $tipoDeLugar)
+                ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
+                ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
+                ->where('Ciudad', 'like', '%' . $ubicacion . '%')
+                ->Join($tablaJoin, 'puntosinteres.id', '=', $tablaJoin . '.puntosinteres_id')
+                ->select('puntosinteres.*', $tablaJoin . '.*')
+                ->get();
+        }
 
-        $puntosParaTourEspectaculos = DB::table('puntosinteres')
-            ->where('HoraDeApertura', '<=', $horaInicio)
-            ->where('HoraDeCierre', '>', $horaInicio)
-            ->where('TipoDeLugar', '=', $tipoDeLugar)
-            ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('Ciudad', 'like', '%' . $ubicacion . '%')
-            ->Join('eventos', 'puntosinteres.id', '=', 'puntosinteres_id')
-            ->select('puntosinteres.*', 'eventos.*')
-            ->get();
-
-        $puntosParaTourActividadesInfantiles = DB::table('puntosinteres')
-            ->Join('actividades_infantiles', 'puntosinteres.id', '=', 'actividades_infantiles.puntosinteres_id')
-            ->where('HoraDeApertura', '<=', $horaInicio)
-            ->where('HoraDeCierre', '>', $horaInicio)
-            ->where('TipoDeLugar', '=', $tipoDeLugar)
-            ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('Ciudad', 'like', '%' . $ubicacion . '%')
-            ->select('puntosinteres.*', 'actividades_infantiles.*')
-            ->get();
-
-        $puntosParaTourActividadesNocturnas = DB::table('puntosinteres')
-            ->Join('actividades_nocturnas', 'puntosinteres.id', '=', 'actividades_nocturnas.puntosinteres_id')
-            ->where('HoraDeApertura', '<=', $horaInicio)
-            ->where('HoraDeCierre', '>', $horaInicio)
-            ->where('TipoDeLugar', '=', $tipoDeLugar)
-            ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('Ciudad', 'like', '%' . $ubicacion . '%')
-            ->select('puntosinteres.*', 'actividades_nocturnas.*')
-            ->get();
-
-        $puntosParaTourPaseos = DB::table('puntosinteres')
-            ->where('HoraDeApertura', '<=', $horaInicio)
-            ->where('HoraDeCierre', '>', $horaInicio)
-            ->where('TipoDeLugar', '=', $tipoDeLugar)
-            ->where('RestriccionDeEdad', '=', $restriccionDeEdad)
-            ->where('EnfoqueDePersonas', '=', $enfoqueDePersonas)
-            ->where('Ciudad', 'like', '%' . $ubicacion . '%')
-            ->Join('paseos', 'puntosinteres.id', '=', 'paseos.puntosinteres_id')
-            ->select('puntosinteres.*', 'paseos.*')
-            ->get();
+        $puntosParaTourGastronomicos         = obtenerPuntosInteres('gastronomicos', $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion);
+        $puntosParaTourEspectaculos          = obtenerPuntosInteres('eventos', $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion);
+        $puntosParaTourActividadesInfantiles = obtenerPuntosInteres('actividades_infantiles', $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion);
+        $puntosParaTourActividadesNocturnas  = obtenerPuntosInteres('actividades_nocturnas', $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion);
+        $puntosParaTourPaseos                = obtenerPuntosInteres('paseos', $horaInicio, $tipoDeLugar, $restriccionDeEdad, $enfoqueDePersonas, $ubicacion);
 
         array_push($puntosParatourArray,
             $puntosParaTourGastronomicos,
@@ -218,28 +183,10 @@ class PuntosInteresController extends Controller
             $puntosParaTourPaseos
         );
 
-        $data      = collect($puntosParatourArray);
+        $data       = collect($puntosParatourArray);
         $arrayFinal = $data->flatten()->toArray();
 
         return response()->json($arrayFinal);
-
-        ####################################################################
-        /*  $results = DB::table('puntosinteres AS t1')
-        ->join('gastronomicos AS t2', 't1.id', '=', 't2.puntosinteres_id')
-        ->join('eventos AS t3', 't1.id', '=', 't3.puntosinteres_id')
-        ->join('actividades_infantiles AS t4', 't1.id', '=', 't4.puntosinteres_id')
-        ->select('t1.*', 't2.*', 't3.*', 't4.*')
-        ->where('t1.HoraDeApertura', '<=', $horaInicio)
-        ->where('t1.HoraDeCierre', '>', $horaInicio)
-        ->where('t1.TipoDeLugar', '=', $tipoDeLugar)
-        ->where('t1.RestriccionDeEdad', '=', $restriccionDeEdad)
-        ->where('t1.EnfoqueDePersonas', '=', $enfoqueDePersonas)
-        ->where('t1.Ciudad', 'like', '%' . $ubicacion . '%')
-        ->get();
-
-        return response()->json($results); */
-
-        
 
     }
 
