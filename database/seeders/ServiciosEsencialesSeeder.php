@@ -17,16 +17,20 @@ class ServiciosEsencialesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Hospital ' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Hospital ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Hospital ' . $c,
+                'Web' => 'https://www.google.com/',
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -41,16 +45,20 @@ class ServiciosEsencialesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Farmacia ' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Farmacia ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Farmacia ' . $c,
+                'Web' => 'https://www.google.com/',
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -63,16 +71,20 @@ class ServiciosEsencialesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Cerrajeria ' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Cerrajeria ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Cerrajeria ' . $c,
+                'Web' => 'https://www.google.com/',
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -85,16 +97,20 @@ class ServiciosEsencialesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Estacion ' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Estacion ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Estacion ' . $c,
+                'Web' => 'https://www.google.com/',
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('servicios_esenciales')->insert([
@@ -107,16 +123,20 @@ class ServiciosEsencialesSeeder extends Seeder
             DB::table('puntosinteres')->insert([
                 'Nombre'         => 'Seccional ' . $faker->city,
                 'Departamento'   => $faker->state,
-                'Ciudad'         => $faker->city,
+                'Ciudad'       => $faker->randomElement(['Montevideo','Canelones', 'San Jose']),
                 'Direccion'      => $faker->address,
-                'HoraDeApertura' => $faker->time($format = 'H:i:s', $max = 'now'),
-                'HoraDeCierre' => $faker->time($format = 'H:i:s', $max = 'now'),
+                'HoraDeApertura' => $faker->randomElement(['08:00:00','10:00:00', '12:00:00','14:00:00']),
+                'HoraDeCierre' => $faker->randomElement(['16:00:00','18:00:00', '20:00:00','22:00:00']),
                 'Facebook' => 'https://www.facebook.com/' . 'Seccional ' . $c,
                 'Instagram' => 'https://www.instagram.com/' . 'Seccional ' . $c,
+                'Web' => 'https://www.google.com/',
                 'Descripcion'  => $faker->text($maxNbChars = 200),
                 'Imagen'       => $faker->imageUrl($width = 640, $height = 480),
                 'Latitud'        => rand(3474990, 3493590),
-                'Longitud'       => rand(5583360, 5633330)
+                'Longitud'       => rand(5583360, 5633330),
+                'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
+                'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
             ]);
 
             DB::table('servicios_esenciales')->insert([

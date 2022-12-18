@@ -83,7 +83,7 @@ class TranslationSeeder extends Seeder
 
         DB::table('translations')->insert([
             'tagName' => 'lodginLabel',
-            'es'      => 'Hospedaje',
+            'es'      => 'Alojamiento',
             'en'      => 'Lodgin',
         ]);
 
@@ -451,5 +451,14 @@ class TranslationSeeder extends Seeder
             'es'      => 'Conoce los principales tours que tenemos preparados para ti',
             'en'      => 'Get to know the main tours we have prepared for you',
         ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'loginWhithGoole',
+            'es'      => 'Ingresar con Google',
+            'en'      => 'Login whith Google',
+        ]);
+
+
+        
     }
 }
