@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PuntosInteres;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Gastronomicos extends Model
 {
@@ -14,7 +15,7 @@ class Gastronomicos extends Model
         'Tipo'
     ];
 
-    // public function PuntosInteres(){
-    //     return $this->belongsTo(PuntosInteres::class);
-    // }
+    public function PuntosInteres(){
+        return $this->belongsTo(PuntosInteres::class, 'puntosinteres_id', 'id');
+    }
 }

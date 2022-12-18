@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PuntosInteres;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ActividadesNocturnas extends Model
 {
@@ -12,6 +13,13 @@ class ActividadesNocturnas extends Model
     protected $table = 'actividades_nocturnas';
 
     protected $fillable = [
-        'Tipo'
+        'Tipo',
     ];
+
+    public function PuntosInteres()
+    {
+        return $this->belongsTo(PuntosInteres::class, 'puntosinteres_id', 'id');
+        // return $this->belongsTo(PuntosInteres::class, 'puntosinteres.id', 'ActividadesNocturnas.puntosinteres_id');
+    }
+
 }

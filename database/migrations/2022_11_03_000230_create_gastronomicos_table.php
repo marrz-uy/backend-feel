@@ -19,6 +19,10 @@ class CreateGastronomicosTable extends Migration
             ->constrained('puntosinteres')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+            $table->boolean('ComidaVegge')->nullable();
+            $table->boolean('Comida')->nullable();
+            $table->boolean('Alcohol')->nullable();
+            $table->boolean('MenuInfantil')->nullable();
             $table->set('Tipo',['Restaurantes','Bares','Comida rapida','Cervezerias']);
             $table->timestamps();
         });
