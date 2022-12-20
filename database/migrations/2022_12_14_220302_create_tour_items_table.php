@@ -14,12 +14,14 @@ class CreateTourItemsTable extends Migration
     public function up()
     {
         Schema::create('tour_items', function (Blueprint $table) {
+            $table->unsignedBigInteger('tourId')
+                ->references('id')
+                ->on('tour_armados')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->unsignedBigInteger('puntoInteresId')
                 ->references('id')
                 ->on('puntosinteres');
-            $table->unsignedBigInteger('tourId')
-                ->references('id')
-                ->on('tour_armados');
             $table->timestamps();
         });
     }
