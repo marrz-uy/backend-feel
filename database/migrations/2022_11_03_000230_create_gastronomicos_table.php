@@ -14,7 +14,6 @@ class CreateGastronomicosTable extends Migration
     public function up()
     {
         Schema::create('gastronomicos', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
             ->constrained('puntosinteres')
             ->onUpdate('cascade')
