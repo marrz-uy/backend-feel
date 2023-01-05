@@ -458,7 +458,59 @@ class TranslationSeeder extends Seeder
             'en'      => 'Login whith Google',
         ]);
 
+        DB::table('translations')->insert([
+            'tagName' => 'placeCity',
+            'es'      => 'Ciudad',
+            'en'      => 'City',
+        ]);
 
+        DB::table('translations')->insert([
+            'tagName' => 'placeState',
+            'es'      => 'Departamento',
+            'en'      => 'State',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'placeAddress',
+            'es'      => 'Dirección',
+            'en'      => 'Address',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'placeDescription',
+            'es'      => 'Descripción',
+            'en'      => 'Description',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'placeOpeningTime',
+            'es'      => 'Hora de apertura',
+            'en'      => 'Opening time',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'placeClosingTime',
+            'es'      => 'Hora de cierre',
+            'en'      => 'Closing time',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'placeMoreInformation',
+            'es'      => 'Más información',
+            'en'      => 'More information',
+        ]);
         
+        DB::table('translations')->insert([
+            'tagName' => 'localizationNotSupported',
+            'es'      => 'Localizacion no admitida por el usuario',
+            'en'      => 'Localization not supported by user',
+        ]);
+        
+        DB::table('translations')->insert([
+            'tagName' => 'reloadApplication',
+            'es'      => 'Recargue la aplicacion para volver a activarla',
+            'en'      => 'Reload the application to reactivate it.',
+        ]);
+                
     }
 }
