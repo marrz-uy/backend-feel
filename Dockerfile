@@ -1,7 +1,5 @@
 FROM centos:7
 
-
-
 RUN yum install -y  epel-release && yum install -y  https://rpms.remirepo.net/enterprise/remi-release-7.rpm &&  yum clean all && rm -rf /var/cache/yum
 
 RUN yum install -y php81-php-bcmath \
