@@ -84,6 +84,7 @@ class TourController extends Controller
     {
         $tourArmados = TourArmado::with('TourItems.PuntosInteres')
             ->where('usuarioId', $id)
+            ->orderBy('id', 'DESC')
             ->get();
 
         return response()->json([
@@ -95,6 +96,7 @@ class TourController extends Controller
     public function ListarToursPredefinidos()
     {
         $toursPredefinidos = TourPredefinido::with('TourItems.PuntosInteres')
+            ->orderBy('id', 'DESC')
             ->get();
 
         return response()->json([

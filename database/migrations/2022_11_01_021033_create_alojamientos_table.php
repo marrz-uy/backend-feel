@@ -14,7 +14,6 @@ class CreateAlojamientosTable extends Migration
     public function up()
     {
         Schema::create('alojamientos', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
             ->constrained('puntosinteres')
             ->onUpdate('cascade')

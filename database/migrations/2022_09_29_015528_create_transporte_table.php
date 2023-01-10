@@ -14,7 +14,6 @@ class CreateTransporteTable extends Migration
     public function up()
     {
         Schema::create('transporte', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
             ->constrained('puntosinteres')
             ->onUpdate('cascade')

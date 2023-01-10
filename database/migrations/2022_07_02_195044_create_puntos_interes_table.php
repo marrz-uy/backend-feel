@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('Longitud')->nullable();
             $table->set('TipoDeLugar', ['Espacio cerrado', 'Al aire libre', 'Ambos']);
             $table->set('RestriccionDeEdad', ['Todas', 'Mayores']);
-            $table->set('EnfoqueDePersonas', ['Grupo', 'Familia', 'Pareja', 'Solo']);
+            $table->set('EnfoqueDePersonas', ['Grupo', 'Familia', 'Pareja', 'Individual', 'Sin restriccion']);
             $table->timestamps();
         });
     }

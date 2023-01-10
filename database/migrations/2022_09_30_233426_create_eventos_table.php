@@ -14,7 +14,6 @@ class CreateEventosTable extends Migration
     public function up()
     {
         Schema::create('eventos', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
                 ->constrained('puntosinteres')
                 ->onUpdate('cascade')

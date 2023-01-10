@@ -43,7 +43,7 @@ class AuthController extends Controller
             "email"        => Auth::user()->email,
             "access_token" => $accessToken,
             'userProfile'  => Auth::user()->profile,
-            'cheked' => Auth::check()
+            'cheked'       => Auth::check(),
         ]);
     }
 
@@ -192,7 +192,7 @@ class AuthController extends Controller
         $user = Auth::user()->token();
         $user->revoke();
         return response()->json([
-            'Successfully logged out'
+            'Successfully logged out',
         ], 200);
     }
 

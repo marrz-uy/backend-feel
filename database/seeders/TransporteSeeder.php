@@ -30,7 +30,7 @@ class TransporteSeeder extends Seeder
                 'Longitud'       => rand(5583360, 5633330),
                 'TipoDeLugar' => $faker->randomElement(['Espacio cerrado','Al aire libre','Ambos']),
                 'RestriccionDeEdad' => $faker->randomElement(['Todas','Mayores']),
-                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja']),
+                'EnfoqueDePersonas' => $faker->randomElement(['Grupo','Familia','Pareja','Sin restriccion']),
             ]);
 
             DB::table('transporte')->insert([
