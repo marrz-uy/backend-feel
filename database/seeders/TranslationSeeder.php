@@ -499,13 +499,13 @@ class TranslationSeeder extends Seeder
             'es'      => 'Más información',
             'en'      => 'More information',
         ]);
-        
+
         DB::table('translations')->insert([
             'tagName' => 'localizationNotSupported',
             'es'      => 'Localizacion no admitida por el usuario',
             'en'      => 'Localization not supported by user',
         ]);
-        
+
         DB::table('translations')->insert([
             'tagName' => 'reloadApplication',
             'es'      => 'Recargue la aplicacion para volver a activarla',
@@ -769,6 +769,144 @@ class TranslationSeeder extends Seeder
             'es'      => 'Puntos de Interes',
             'en'      => 'Points of Interest',
         ]);
- 
+
+        DB::table('translations')->insert([
+            'tagName' => 'predefinedTourTitle',
+            'es'      => 'Tours Predefinidos',
+            'en'      => 'Predefined Tours',
+        ]);
+/* dddddddddddddddddddddddddddddddddddddddddddddddddddddddd */
+        DB::table('translations')->insert([
+            'tagName' => 'weAreSorryModal',
+            'es'      => 'Lo sentimos!',
+            'en'      => 'We are sorry!',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'sorryExplanationModal',
+            'es'      => 'Para poder armar su tour debe estar logueado',
+            'en'      => 'To be able to set up your tour you must be logged in',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'loginBtnModal',
+            'es'      => 'iniciar sesion',
+            'en'      => 'Login',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'closeBtnModal',
+            'es'      => 'Cerrar',
+            'en'      => 'Close',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepPreferences',
+            'es'      => 'Preferencias',
+            'en'      => 'Preferences',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepSeePreferences',
+            'es'      => 'Ver Preferencias',
+            'en'      => 'See Preferences',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepChoose',
+            'es'      => 'Elegir',
+            'en'      => 'Choose',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepSeeTour',
+            'es'      => 'Ver Tour',
+            'en'      => 'See Tour',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepEnd',
+            'es'      => 'Fin',
+            'en'      => 'End',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepBtnNext',
+            'es'      => 'Siguiente',
+            'en'      => 'Next',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'stepBtnPrev',
+            'es'      => 'Previo',
+            'en'      => 'Previous',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'thisIsYourTour',
+            'es'      => 'Asi quedo su tour, debe guradarlo para consultarlo cuando desee',
+            'en'      => 'This is how your tour turned out, you should save it to refer to it whenever you wish.',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'succesModal',
+            'es'      => 'Exelente!',
+            'en'      => 'Succesful!',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'succesExplanationModal',
+            'es'      => 'Su tour se creo correctamente',
+            'en'      => 'Your tour was created successfully',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'seeToursBtnModal',
+            'es'      => 'Ver sus tours',
+            'en'      => 'See your tours',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'closeBtnSuccesModal',
+            'es'      => 'Cerrar',
+            'en'      => 'Close',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'atentionModal',
+            'es'      => 'Atencion!',
+            'en'      => 'Atention!',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'atentionExplanationModal',
+            'es'      => 'Complete todos los campos para continuar',
+            'en'      => 'Complete all fields to continue',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'atentionOkBtnModal',
+            'es'      => 'Entendido',
+            'en'      => 'Ok',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'atentionChooseExplanationModal',
+            'es'      => 'Elija algun punto de interes para continuar',
+            'en'      => 'Choose some point of interest to continue',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'atentionSaveTourExplanationModal',
+            'es'      => 'El tour debe llevar un nombre para poder guardarlo',
+            'en'      => 'The tour must have a name to be able to save it',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'saveTourBtn',
+            'es'      => 'Guardar',
+            'en'      => 'Save',
+        ]);
+
     }
 }
