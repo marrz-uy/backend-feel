@@ -9,7 +9,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('servicios_esenciales', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
             ->constrained('puntosinteres')
             ->onUpdate('cascade')

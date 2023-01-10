@@ -1,25 +1,27 @@
 <?php
- 
+
 namespace Database\Seeders;
- 
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
- 
+
 class UserSeeder extends Seeder
 {
-
-    /* public function run()
+    public function run()
     {
-        DB::table('users')->insert([
-            'email' => 'martin1@gmail.com',
-            'password' => bcrypt('12345678'),
-            'name' => 'Martin1',
-        ]);
-
-        DB::table('users')->insert([
-            'email' => 'martin2@gmail.com',
-            'password' => bcrypt('12345678'),
-            'name' => 'Martin2',
-        ]);
-    } */
+        // User::truncate();
+        $csvData  = fopen(base_path('database/csv/users.csv'), 'r');
+        $transRow = true;
+        while (($data = fgetcsv($csvData, 555, ',')) !== false) {
+            if (!$transRow) {
+                User::create([
+                    'name'     => $data['0'],
+                    'email'    => $data['1'],
+                    'password' => bcrypt($data['2']),
+                ]);
+            }
+            $transRow = false;
+        }
+        fclose($csvData);
+    }
 }
