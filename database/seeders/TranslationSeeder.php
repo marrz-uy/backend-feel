@@ -908,5 +908,101 @@ class TranslationSeeder extends Seeder
             'en'      => 'Save',
         ]);
 
+        DB::table('translations')->insert([
+            'tagName' => 'filterBtn',
+            'es'      => 'Filtrar',
+            'en'      => 'Filter',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'distanceLbel',
+            'es'      => 'Distancia',
+            'en'      => 'Distance',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'hotelEspec',
+            'es'      => 'Especificaciones del Hotel',
+            'en'      => 'Hotel Specifications',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'rooms',
+            'es'      => 'Habitaciones',
+            'en'      => 'Rooms',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'ratings',
+            'es'      => 'Calificaciones',
+            'en'      => 'Ratings',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'privateBathroom',
+            'es'      => 'Baño privado',
+            'en'      => 'Private bathroom',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'restaurant',
+            'es'      => 'Restaurante',
+            'en'      => 'Restaurant',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'breakfast',
+            'es'      => 'Desayuno',
+            'en'      => 'Breakfast',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'cableTv',
+            'es'      => 'Tv Cable',
+            'en'      => 'Cable TV',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'swimmingPool',
+            'es'      => 'Piscina',
+            'en'      => 'Swimming pool',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'airConditioner',
+            'es'      => 'Aire Acondicionado',
+            'en'      => 'Air conditioner',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'restaurantEspec',
+            'es'      => 'Especificaciones del restaurante',
+            'en'      => 'Restaurant Specifications',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'food',
+            'es'      => 'Comida',
+            'en'      => 'Food',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'veggieFood',
+            'es'      => 'Comida Vegge',
+            'en'      => 'Veggie food',
+        ]);
+        
+        DB::table('translations')->insert([
+            'tagName' => 'childrenMenu',
+            'es'      => 'Menu infantil',
+            'en'      => 'Children menu',
+        ]);
+
+        DB::table('translations')->insert([
+            'tagName' => 'yes',
+            'es'      => 'Si',
+            'en'      => 'Yes',
+        ]);
+
     }
 }
