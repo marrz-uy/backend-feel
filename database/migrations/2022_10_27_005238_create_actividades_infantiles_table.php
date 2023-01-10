@@ -14,7 +14,6 @@ class CreateActividadesInfantilesTable extends Migration
     public function up()
     {
         Schema::create('actividades_infantiles', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('puntosinteres_id')
                 ->constrained('puntosinteres')
                 ->onUpdate('cascade')
