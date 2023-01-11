@@ -40,9 +40,11 @@ Route::DELETE('/userProfile/{id}', [UserProfileController::class, 'deleteUserPro
 
 Route::GET('/PuntosInteres/nombre/{nombre}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorNombre']); //Sin geolocalizacion
 Route::GET('/PuntosInteres/categoria/{categoria}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorCategoria']); //Sin geolocalizacion
+Route::GET('/PuntosInteres/{id}', [PuntosInteresController::class, 'VerPuntoCompleto']); //para Nacho
 
 Route::POST('/PuntosInteresCercanos/nombre/{nombre}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorNombreCercanos']); //Con geolocalizacion
 Route::POST('/PuntosInteresCercanos/categoria/{categoria}', [PuntosInteresController::class, 'ListarPuntosDeInteresPorCategoriaCercanos']); //Con geolocalizacion
+
 
 Route::POST('/PuntosInteresParaTour', [PuntosInteresController::class, 'ListarPuntosDeInteresParaTour']);
 

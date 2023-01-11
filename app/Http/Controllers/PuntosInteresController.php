@@ -2,11 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PuntosInteres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PuntosInteresController extends Controller
 {
+    public function VerPuntoCompleto($id)
+    {
+        /*
+
+        TABLAS A USAR
+        $tabla = 'actividades_infantiles';
+        $tabla = 'actividades_nocturnas';
+        $tabla = 'alojamientos';
+        $tabla = 'espectaculos'; ->(shows)
+        $tabla = 'eventos';
+        $tabla = 'gastronomicos';
+        $tabla = 'paseos';-> (actividades al aire libre)
+        $tabla = 'servicios_esenciales';
+        $tabla = 'transporte';
+         */
+
+        $punto = PuntosInteres::findOrFail($id);
+
+        $tables = [
+            'actividades_infantiles',
+            'actividades_nocturnas',
+            'alojamientos',
+            'espectaculos',
+            'eventos',
+            'gastronomicos',
+            'paseos',
+            'servicios_esenciales',
+            'transporte',
+        ];
+        $result = null;
+
+        foreach ($tables as $table) {
+            $data = DB::table($table)->where('puntosinteres_id', $id)->first();
+            if ($data) {
+                $result = $data;
+                break;
+            }
+        }
+
+        return response()->json(['punto' => $punto, 'tipo' => $result]);
+    }
 
     //**LISTAR PUNTOS DE INTERES POR NOMBRE con DISTANCIA**
     public function ListarPuntosDeInteresPorNombreCercanos(Request $request, $Nombre)
