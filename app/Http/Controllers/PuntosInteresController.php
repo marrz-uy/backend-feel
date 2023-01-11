@@ -11,7 +11,6 @@ class PuntosInteresController extends Controller
     public function VerPuntoCompleto($id)
     {
         /*
-
         TABLAS A USAR
         $tabla = 'actividades_infantiles';
         $tabla = 'actividades_nocturnas';
@@ -37,8 +36,8 @@ class PuntosInteresController extends Controller
             'servicios_esenciales',
             'transporte',
         ];
-        $result = null;
 
+        $result = null;
         foreach ($tables as $table) {
             $data = DB::table($table)->where('puntosinteres_id', $id)->first();
             if ($data) {
