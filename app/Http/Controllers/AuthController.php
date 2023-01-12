@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Controller;
-use App\Mail\RegistroUsuario;
+use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\RegistroUsuario;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Validator;
+use App\Http\Controllers\AuthController;
 
 // use Illuminate\Support\Facades\Auth;
 
@@ -92,8 +93,13 @@ class AuthController extends Controller
             'name'     => $request->name,
         ]);
 
+        // ENVIAR CORREO DE REGISTRO
         $correo = new RegistroUsuario($user->name);
         Mail::to($user->email)->send($correo);
+        
+        // GUARDAR EN REGISTRO EN UN LOG- storage/logs/users
+        $data = [];
+        Log::channel('users_logs')->info('Se registro el usario ' . $user->id . $user->email);
 
         return response()->json([
             'message' => 'User successfully registered',

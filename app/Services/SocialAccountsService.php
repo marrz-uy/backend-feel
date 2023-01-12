@@ -35,8 +35,14 @@ class SocialAccountsService
                     'email' => $providerUser->getEmail(),
                 ]);
 
+                // ENVIAR CORREO DE REGISTRO
                 $correo = new RegistroUsuario($user->name);
                 Mail::to($user->email)->send($correo);
+
+                // GUARDAR EN REGISTRO EN UN LOG- storage/logs/users
+                $data = [];
+                Log::channel('users_logs')->info('Se registro el usario ' . $user->id . $user->email);
+
             }
             $user->socialAccounts()->create([
                 'provider_id'   => $providerUser->getId(),
