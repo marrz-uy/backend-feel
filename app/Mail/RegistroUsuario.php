@@ -11,6 +11,7 @@ class RegistroUsuario extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
+    public $subject = "Bienvenido a FeelUy";
 
     /**
      * Create a new message instance.

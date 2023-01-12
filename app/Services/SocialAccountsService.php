@@ -1,16 +1,20 @@
 <?php
 namespace App\Services;
-use App\Models\User;
+
+use App\Mail\RegistroUsuario;
 use App\Models\SocialAccount;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Two\User as ProviderUser;
+
 class SocialAccountsService
 {
     /**
      * Find or create user instance by provider user instance and provider name.
-     * 
+     *
      * @param ProviderUser $providerUser
      * @param string $provider
-     * 
+     *
      * @return User
      */
     public function findOrCreate(ProviderUser $providerUser, string $provider): User
@@ -25,14 +29,17 @@ class SocialAccountsService
             if ($email = $providerUser->getEmail()) {
                 $user = User::where('email', $email)->first();
             }
-            if (! $user) {
+            if (!$user) {
                 $user = User::create([
-                    'name' => $providerUser->getName(),
+                    'name'  => $providerUser->getName(),
                     'email' => $providerUser->getEmail(),
                 ]);
+
+                $correo = new RegistroUsuario($user->name);
+                Mail::to($user->email)->send($correo);
             }
             $user->socialAccounts()->create([
-                'provider_id' => $providerUser->getId(),
+                'provider_id'   => $providerUser->getId(),
                 'provider_name' => $provider,
             ]);
             return $user;
